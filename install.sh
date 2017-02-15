@@ -19,7 +19,7 @@ if [ "$input" = "y" ]; then
 
   echo "  $HOME/.oh-my-zsh/themes/wradion.zsh-theme"
   [ -f $HOME/.oh-my-zsh/themes/wradion.zsh-theme ] && rm $HOME/.oh-my-zsh/themes/wradion.zsh-theme
-  ln -s ./oh-my-zsh/themes/wradion.zsh-theme
+  ln -s ./oh-my-zsh/themes/wradion.zsh-theme $HOME/.oh-my-zsh/themes/wradion.zsh-theme
 
   echo "  $HOME/.zshrc"
   [ -f $HOME/.zshrc ] && rm $HOME/.zshrc
