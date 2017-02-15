@@ -1,5 +1,7 @@
 #! /bin/sh
 
+export DOTFILES="$HOME/.dotfiles"
+
 echo "Installing dotfiles..."
 
 # INSTALL CONFIG
@@ -13,37 +15,29 @@ if [ "$input" = "y" ]; then
   mkdir -vp $HOME/.vim/swapfiles
 
   echo "Creating symbolic links..."
-  echo "  $HOME/.config/htop/htoprc"
-  [ -f $HOME/.config/htop/htoprc ] && rm $HOME/.config/htop/htoprc
-  ln -s ./config/htop/htoprc $HOME/.config/htop
+  [ -e $HOME/.config/htop/htoprc ] && rm -f $HOME/.config/htop/htoprc
+  ln -s $DOTFILES/config/htop/htoprc $HOME/.config/htop
 
-  echo "  $HOME/.oh-my-zsh/themes/wradion.zsh-theme"
-  [ -f $HOME/.oh-my-zsh/themes/wradion.zsh-theme ] && rm $HOME/.oh-my-zsh/themes/wradion.zsh-theme
-  ln -s ./oh-my-zsh/themes/wradion.zsh-theme $HOME/.oh-my-zsh/themes/wradion.zsh-theme
+  [ -e $HOME/.oh-my-zsh/themes/wradion.zsh-theme ] && rm -f $HOME/.oh-my-zsh/themes/wradion.zsh-theme
+  ln -s $DOTFILES/zsh/oh-my-zsh/themes/wradion.zsh-theme $HOME/.oh-my-zsh/themes/wradion.zsh-theme
 
-  echo "  $HOME/.zshrc"
-  [ -f $HOME/.zshrc ] && rm $HOME/.zshrc
-  ln -s ./zsh/zshrc $HOME/.zshrc
+  [ -e $HOME/.zshrc ] && rm -f $HOME/.zshrc
+  ln -s $DOTFILES/zsh/zshrc $HOME/.zshrc
 
-  echo "  $HOME/.vimrc"
-  [ -f $HOME/.vimrc ] && rm $HOME/.vimrc
-  ln -s ./vim/vimrc $HOME/.vimrc
+  [ -e $HOME/.vimrc ] && rm -f $HOME/.vimrc
+  ln -s $DOTFILES/vim/vimrc $HOME/.vimrc
 
-  echo "  $HOME/.vim/colors/wradion.vim"
-  [ -f $HOME/.vim/colors/wradion.vim ] && rm $HOME/.vim/colors/wradion.vim
-  ln -s ./vim/colors/wradion.vim $HOME/.vim/colors/wradion.vim
+  [ -e $HOME/.vim/colors/wradion.vim ] && rm -f $HOME/.vim/colors/wradion.vim
+  ln -s $DOTFILES/vim/colors/wradion.vim $HOME/.vim/colors/wradion.vim
 
-  echo "  $HOME/.irbrc"
-  [ -f $HOME/.irbrc ] && rm $HOME/.irbrc
-  ln -s ./other/irbrc $HOME/.irbrc
+  [ -e $HOME/.irbrc ] && rm -f $HOME/.irbrc
+  ln -s $DOTFILES/other/irbrc $HOME/.irbrc
 
-  echo "  $HOME/.pryrc"
-  [ -f $HOME/.pryrc ] && rm $HOME/.pryrc
-  ln -s ./other/pryrc $HOME/.pryrc
+  [ -e $HOME/.pryrc ] && rm -f $HOME/.pryrc
+  ln -s $DOTFILES/other/pryrc $HOME/.pryrc
 
-  echo "  $HOME/.gitconfig"
-  [ -f $HOME/.gitconfig ] && rm $HOME/.gitconfig
-  ln -s ./git/gitconfig $HOME/.gitconfig
+  [ -e $HOME/.gitconfig ] && rm -f $HOME/.gitconfig
+  ln -s $DOTFILES/git/gitconfig $HOME/.gitconfig
 fi
 
 # INSTALL LINUXBREW
