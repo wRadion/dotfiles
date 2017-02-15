@@ -1,0 +1,11 @@
+[user]
+  name = wRadion
+  email = wradion@gmail.com
+[push]
+  default = current
+[core]
+  editor = vim
+[credential]
+  helper = store
+[merge]
+  tool = opendiff
