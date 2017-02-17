@@ -21,15 +21,6 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Packs of syntax highlighting theme for vim
 Plugin 'flazz/vim-colorschemes'
 
-" Syntax highlighting for Slim
-Plugin 'slim-template/vim-slim'
-
-" Syntax highlighting for Elixir
-Plugin 'elixir-lang/vim-elixir'
-
-" Syntax highlighting for Markdown
-Plugin 'plasticboy/vim-markdown'
-
 " Complete airline for vim
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -45,6 +36,12 @@ Plugin 'ngmy/vim-rubocop'
 
 " General-purpose fuzzy finder
 Plugin 'junegunn/fzf'
+
+" Helpers syntax/parsing for programming languages
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'slim-template/vim-slim'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'plasticboy/vim-markdown'
 
 " Helpers for developing with Rails
 Plugin 'tpope/vim-rails'
