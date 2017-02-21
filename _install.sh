@@ -40,24 +40,6 @@ if [ "$input" = "y" ]; then
   ln -s $DOTFILES/git/gitconfig $HOME/.gitconfig
 fi
 
-# INSTALL LINUXBREW
-echo "Install Linuxbrew (y/n)? "
-read input
-if [ "$input" = "y" ]; then
-  echo "Install Linuxbrew..."
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
-fi
-
-# INSTALL BREWS
-echo "Install brews (y/n)? "
-read input
-if [ "$input" = "y" ]; then
-  if [ -f ./brewfile.sh ]; then
-    echo "Installing brews..."
-    source ./brewfile.sh
-  fi
-fi
-
 # INSTALL RVM
 echo "Install RVM (y/n)? "
 read input
