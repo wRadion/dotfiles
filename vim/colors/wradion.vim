@@ -29,7 +29,7 @@ hi ColorColumn      guibg=#080808 ctermbg=232
 hi NonText          guifg=#585858 guibg=#080808 ctermfg=240 ctermbg=232 cterm=none
 hi LineNr           guifg=#8a8a8a guibg=#262626 ctermfg=245 ctermbg=235 cterm=none
 hi CursorLineNr     guifg=#ffffff guibg=#585858 ctermfg=231 ctermbg=240 cterm=bold
-hi VertSplit        guifg=#005f00 guibg=#005f00 ctermfg=22  ctermbg=22 cterm=none
+hi VertSplit        guifg=#000000 guibg=#000000 ctermfg=255 ctermbg=255 cterm=none
 hi Visual           guifg=#1c1c1c guibg=#585858 ctermfg=233 ctermbg=240 cterm=none
 
 hi Folded           ctermfg=255 ctermbg=16 cterm=none

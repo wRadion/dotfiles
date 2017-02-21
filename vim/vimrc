@@ -74,6 +74,9 @@ autocmd BufWritePre * %s/\s\+$//e
 " Show line numbers
 set number
 
+" Show wildmenu (helper when searching for files)
+set wildmenu
+
 " Tab settings
 "" Expand tabs with whitespaces
 set expandtab
