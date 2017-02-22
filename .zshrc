@@ -54,15 +54,10 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh/custom
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-# Path to linuxbrew if exists
-[ -d $HOME/.linuxbrew/bin ] && export PATH="$HOME/.linuxbrew/bin:$PATH"
-
 ZSH_SYNTAX_HIGHLIGHTING=/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f $ZSH_SYNTAX_HIGHLIGHTING ] && source $ZSH_SYNTAX_HIGHLIGHTING
 
-[ -f $DOTFILES/zsh/fzf.zsh ] && source $DOTFILES/zsh/fzf.zsh
-[ -f $DOTFILES/zsh/aliases.zsh ] && source $DOTFILES/zsh/aliases.zsh
-[ -f $DOTFILES/zsh/exports.zsh ] && source $DOTFILES/zsh/exports.zsh
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
