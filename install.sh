@@ -152,7 +152,8 @@ install "tar"  "required"
 install "zsh"                     "required"
 # OH-MY-ZSH #
 CHECK_COMMAND="test -d $HOME/.oh-my-zsh"
-install "oh-my-zsh"               "required" "curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
+TMP="sh -c \"$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\""
+install "oh-my-zsh"               "required" "$TMP"
 
 # ZSH-SYNTAX-HIGHLIGHTING #
 CHECK_COMMAND="test -d $HOME/.zsh/zsh-syntax-highlighting/"
