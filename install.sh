@@ -191,6 +191,7 @@ if [ $? = 0 ]; then
 
   create_link ".vimrc"
   create_link ".vim/colors/wradion.vim"
+  create_link ".vim/snippets/ruby.snippets"
 fi
 
 # TOOLS #

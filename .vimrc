@@ -46,6 +46,12 @@ Plugin 'plasticboy/vim-markdown'
 " Helpers for developing with Rails
 Plugin 'tpope/vim-rails'
 
+" Snippets
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -105,6 +111,9 @@ set dir=~/.vim/swapfiles
 " Highlight current line/column
 set cursorline
 set cursorcolumn
+
+" Disable folding
+set nofoldenable
 
 " Color the first 100 columns differently
 let &colorcolumn=join(range(101,499),",")
@@ -221,7 +230,8 @@ if has("autocmd")
 
 else
 
-  set autoindent		" always set autoindenting on
+  " always set autoindenting on
+  set autoindent
 
 endif " has("autocmd")
 
@@ -230,5 +240,5 @@ endif " has("autocmd")
 " Only define it when not defined already.
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+    \ | wincmd p | diffthis
 endif
