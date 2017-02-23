@@ -95,7 +95,7 @@ install () {
 
 create_link () {
   necho "creating symbolic link for $1... "
-  mkdir -p $(dirname "$1")
+  mkdir -p $HOME/$(dirname $1)
   ln -sf $DOTFILES/$1 $HOME/$1
   if [ $? = 0 ]; then
     echo "OK"
