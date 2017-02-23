@@ -1,9 +1,23 @@
 #! /bin/sh
 
+#---------#
+# OS TYPE #
+#---------#
+
+case "$OSTYPE" in
+  linux*)  LINUX="true" ; MAC="false"   ;;
+  darwin*) MAC="true"   ; LINUX="false" ;;
+esac
+
 #########
 # UTILS #
 #########
-alias ls="ls -G"
+if $LINUX; then
+  alias ls="ls --color"
+elif $MAC; then
+  alias ls="ls -G"
+fi
+
 alias la="ls -a"
 alias ll="ls -lh"
 alias l="ls -lha"

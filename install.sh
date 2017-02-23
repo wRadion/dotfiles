@@ -4,13 +4,34 @@
 cd `dirname $0`
 DOTFILES=`pwd`
 
+#-------------------#
+# Determine OS type #
+#-------------------#
+
+case "$OSTYPE" in
+  linux*)  LINUX="true" ; MAC="false"   ;;
+  darwin*) MAC="true"   ; LINUX="false" ;;
+esac
+
+necho () {
+  if $LINUX; then
+    echo -n "$1"
+  elif $MAC; then
+    echo "$1\c"
+  fi
+}
+
+# Usage:
+#  if $LINUX; then echo "Hello, linux!"; fi
+#  if $MAC;   then echo "Hello, Mac!"  ; fi
+
 #-----------#
 # Functions #
 #-----------#
 
 check_binary () {
   if [ "$2" != "noecho" ]; then
-    echo "checking for $1... \c"
+    necho "checking for $1... "
   fi
   if [ "$CHECK_COMMAND" = "" ]; then
     CHECK_COMMAND="command -v $1"
@@ -34,14 +55,14 @@ check_binary () {
   fi
 }
 
-FOUND=()
-INSTALLED=()
-FAILED=()
+FOUND=""
+INSTALLED=""
+FAILED=""
 
 install () {
   check_binary "$1"
   if [ $? = 0 ]; then
-    FOUND+=("$1")
+    FOUND+=" $1"
     return 0
   fi
   echo "installing $1..."
@@ -51,11 +72,11 @@ install () {
     COMMAND="$INSTALL $1"
   fi
   echo "running: $COMMAND"
-  $COMMAND >/dev/null
+  $COMMAND
   check_binary "$1" "noecho"
   if [ $? = 0 ]; then
     echo "installed $1 successfully"
-    INSTALLED+=("$1")
+    INSTALLED+=" $1"
     return 0
   else
     if [ "$2" = "required" ]; then
@@ -66,35 +87,26 @@ install () {
       exit 1
     else
       echo "$1 was not installed successfully"
-      FAILED+=("$1")
+      FAILED+=" $1"
       return 1
     fi
   fi
 }
 
 create_link () {
-  echo "creating symbolic link for $1... \c"
+  necho "creating symbolic link for $1... "
   ln -sf $DOTFILES/$1 $HOME/$1
   if [ $? = 0 ]; then
     echo "OK"
   else
-    FAILED+=("symlink for $1")
+    FAILED+=" symlink for $1"
     echo "ERROR"
   fi
 }
 
-#---------------------------------------#
-# Determine OS type and package manager #
-#---------------------------------------#
-
-case "$OSTYPE" in
-  linux*)  LINUX="true" ; MAC="false"   ;;
-  darwin*) MAC="true"   ; LINUX="false" ;;
-esac
-
-# Usage:
-#  if $LINUX; then echo "Hello, linux!"; fi
-#  if $MAC;   then echo "Hello, Mac!"  ; fi
+#---------------------------#
+# Determine package manager #
+#---------------------------#
 
 INSTALL=""
 if $MAC; then
@@ -136,12 +148,17 @@ install "tar"  "required"
 # Install programs #
 #------------------#
 
-# SHELL #
+# ZSH #
 install "zsh"                     "required"
-CHECK_COMMAND="test -d /usr/local/share/zsh-syntax-highlighting/"
-install "zsh-syntax-highlighting"
+# OH-MY-ZSH #
 CHECK_COMMAND="test -d $HOME/.oh-my-zsh"
 install "oh-my-zsh"               "required" "curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
+
+# ZSH-SYNTAX-HIGHLIGHTING #
+CHECK_COMMAND="test -d $HOME/.zsh/zsh-syntax-highlighting/"
+TMP="git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.zsh/zsh-syntax-highlighting"
+install "zsh-syntax-highlighting" "" "$TMP"
+
 if [ $? = 0 ]; then
   create_link ".zshrc"
   create_link ".oh-my-zsh/themes/wradion.zsh-theme"
@@ -157,6 +174,17 @@ fi
 # EDITOR #
 install "vim"
 if [ $? = 0 ]; then
+  mkdir -p $HOME/.vim/swapfiles
+
+  necho "checking for Vundle... "
+  if [ ! -d "$HOME/.vim/bundle/Vundle.vim" ]; then
+    echo "NOT INSTALLED"
+    echo "installing Vundle for vim..."
+    git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+  else
+    echo "OK"
+  fi
+
   create_link ".vimrc"
   create_link ".vim/colors/wradion.vim"
 fi
@@ -182,8 +210,22 @@ install "gpg-agent"
 install "openssl"
 
 # LINUX SPECIFIC #
-# TODO: install xorg, i3, fonts (DejaVu Sans Mono for powerline), ...
-# TODO: create_link .Xresources, Xprofile, ...
+if $LINUX; then
+  CHECK_COMMAND="check_binary Xorg"
+  install "xorg"
+  if [ $? = 0 ]; then
+    create_link ".xinitrc"
+    create_link ".Xresources"
+  fi
+
+  install "i3"
+  if [ $? = 0 ]; then
+    create_link ".config/i3/config"
+    create_link ".zprofile"
+  fi
+
+  # TODO: install fonts (DejaVu Sans Mono for powerline), ...
+fi
 
 # MACOS SPECIFIC #
 if $MAC; then
@@ -197,19 +239,23 @@ if $MAC; then
   fi
 fi
 
+echo
+
 if [ "$INSTALLED" != "" ]; then
   echo "INSTALLED programs:"
   for NAME in $INSTALLED; do
-    echo $NAME
+    echo "  $NAME"
   done
 fi
 
 if [ "$FAILED" != "" ]; then
   echo "NOT INSTALLED programs:"
   for NAME in $FAILED; do
-    echo $NAME
+    echo "  $NAME"
   done
 fi
 
+echo
 echo "done"
+
 exit 0

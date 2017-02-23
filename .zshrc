@@ -54,10 +54,11 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh/custom
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-ZSH_SYNTAX_HIGHLIGHTING=/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-[ -f $ZSH_SYNTAX_HIGHLIGHTING ] && source $ZSH_SYNTAX_HIGHLIGHTING
-
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# Zsh Syntax Highlighting
+ZSH_SYNTAX_HIGHLIGHTING=$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f $ZSH_SYNTAX_HIGHLIGHTING ] && source $ZSH_SYNTAX_HIGHLIGHTING
