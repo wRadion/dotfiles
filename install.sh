@@ -60,7 +60,9 @@ INSTALLED=""
 FAILED=""
 
 install () {
+  TMP_CHECK_COMMAND="$CHECK_COMMAND"
   check_binary "$1"
+  CHECK_COMMAND="$TMP_CHECK_COMMAND"
   if [ $? = 0 ]; then
     FOUND+=" $1"
     return 0
