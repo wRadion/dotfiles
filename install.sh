@@ -229,6 +229,8 @@ if $LINUX; then
   if [ $? = 0 ]; then
     create_link ".config/i3/config"
     create_link ".zprofile"
+
+    install "dmenu"
   fi
 
   sudo mkdir -p /usr/local/opt/fzf/shell
