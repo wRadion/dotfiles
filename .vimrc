@@ -25,6 +25,9 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
+" EasyMotion
+Plugin 'easymotion/vim-easymotion'
+
 " Highlights trailing whitespace in red
 Plugin 'bronson/vim-trailing-whitespace'
 
@@ -120,6 +123,9 @@ let &colorcolumn=join(range(101,499),",")
 
 " No folding markdown files
 let g:vim_markdown_folding_disabled = 1
+
+" Set <leader> key
+let mapleader = ";"
 
 " Split movement remap
 nnoremap <Esc>j <C-W>j
