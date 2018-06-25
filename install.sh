@@ -233,8 +233,12 @@ if $LINUX; then
     install "dmenu"
   fi
 
+  # FZF
   sudo mkdir -p /usr/local/opt/fzf/shell
   ln -s $DOTFILES/.key-bindings.zsh /usr/local/opt/fzf/shell/key-bindings.zsh
+
+  # Sound
+  install "alsa-utils"
 
   # TODO: install fonts (DejaVu Sans Mono for powerline), ...
 fi
