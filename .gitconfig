@@ -8,4 +8,4 @@
 [credential]
   helper = store
 [merge]
-  tool = opendiff
+  tool = vimdiff
