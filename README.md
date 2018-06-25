@@ -22,14 +22,10 @@ Execute the `install.sh` :
 $ ./install.sh
 ```
 
-## Notes
-
-**/!\ Not tested on Linux /!\**
-
 ## TODO
 
-- [ ] Test it on Linux
-- [ ] Add Linux specific packages (xorg, i3, ...)
+- [x] Test it on Linux
+- [x] Add Linux specific packages (xorg, i3, ...)
 - [ ] Add/install/configure fonts (DejaVu Sans Mono for Powerline)
 - [ ] Add iterm profile(?)
 - [ ] More documentation on what is actually installed and what is it doing
