@@ -56,7 +56,7 @@ puts "${B_YELLOW}---------------${RESET}"
 
 install_custom "yaourt" "check_binary yaourt"
 install_custom "oh-my-zsh" "check_dir $HOME/.oh-my-zsh"
-install_custom "zsh-syntax-highlighting" "check dir $HOME/.zsh/zsh-syntax-highlighting"
+install_custom "zsh-syntax-highlighting" "check_dir $HOME/.zsh/zsh-syntax-highlighting"
 install_custom "vundle" "check_dir $HOME/.vim/bundle/Vundle.vim"
 install_custom "fzf" "check_file /usr/local/opt/fzf/shell/key-bindings.zsh"
 

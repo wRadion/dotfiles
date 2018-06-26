@@ -88,7 +88,7 @@ install_custom () {
     # Make sure to go to HOME before doing anything
     cd $HOME
 
-    source ./src/custom/$1.sh >/dev/null 1>/dev/null 2>/dev/null
+    source $DOTFILES/src/custom/$1.sh >/dev/null 1>/dev/null 2>/dev/null
     RESULT=$?
 
     # Make sure to return to this folder after install
