@@ -29,12 +29,12 @@ ZSH_THEME="wradion"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="dd.mm.yyyy"
 
 # Path to your dotfiles directory
 export DOTFILES=$HOME/.dotfiles/
@@ -49,6 +49,7 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh/custom
 #plugins=(git)
 
 # User configuration
+[ -f $HOME/.wradion.zsh ] && source $HOME/.wradion.zsh
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -62,3 +63,5 @@ source $ZSH/oh-my-zsh.sh
 # Zsh Syntax Highlighting
 ZSH_SYNTAX_HIGHLIGHTING=$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f $ZSH_SYNTAX_HIGHLIGHTING ] && source $ZSH_SYNTAX_HIGHLIGHTING
+
+true

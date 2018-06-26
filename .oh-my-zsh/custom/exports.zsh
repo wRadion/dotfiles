@@ -10,6 +10,3 @@ export PATH="$PATH:/usr/local/bin"
 
 # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.rvm/bin"
-#
-# PostgreSQL
-export PGDATA="/usr/local/var/postgres/data/"
