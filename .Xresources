@@ -2,7 +2,7 @@ customization: -color
 xterm*termName: xterm-256color
 
 xterm*faceName: DejaVu Sans Mono for Powerline
-xterm*faceSize: 16
+!xterm*faceSize: 16
 
 xterm*loginShell: true
 *foreground: rgb:d5/d5/d5
