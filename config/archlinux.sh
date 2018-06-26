@@ -68,6 +68,7 @@ SYMBOLIC_LINKS="
   .vim/snippets/ruby.snippets
   .config/htop/htoprc
   .config/i3/config
+  .config/i3status/config
   .zshrc
   .fzf.zsh
   .vimrc
