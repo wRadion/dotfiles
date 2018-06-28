@@ -45,6 +45,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'slim-template/vim-slim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'isRuslan/vim-es6'
 
 " Helpers for developing with Rails
 Plugin 'tpope/vim-rails'
@@ -165,6 +166,9 @@ let g:airline_theme='powerlineish'
 " Gemfile, *.ru are ruby syntax
 au BufNewFile,BufRead Gemfile set filetype=ruby
 au BufNewFile,BufRead *.ru set filetype=ruby
+
+" Better Javascript syntax coloration
+augroup filetype javascript syntax=javascript
 
 " An example for a vimrc file.
 "
