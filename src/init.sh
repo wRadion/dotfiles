@@ -1,9 +1,9 @@
 #! /bin/sh
 
 # Check if the script is running as root (sudo)
-if [ "$EUID" -ne 0 ]; then
-  puts "${B_RED}ERROR: You have to be root to execute this script.${RESET}"
-  puts "${B_RED}Try: ${B_YELLOW}sudo $0${RESET}"
+if [ "$EUID" -eq 0 ]; then
+  puts "${B_RED}ERROR: You can't be root to execute this script.${RESET}"
+  puts "${B_RED}But you MAY have to enter the root password for some installations.${RESET}"
   exit 1
 fi
 
@@ -13,7 +13,7 @@ DOTFILES=`pwd`
 
 # Check if the first arg is present and supported
 if [ "$1" == "" ]; then
-  puts "${B_RED}Usage: $0 [archlinux|macos]${RESET}"
+  puts "${B_RED}Usage: $0 [archlinux]${RESET}"
   exit 1
 fi
 

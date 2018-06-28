@@ -31,9 +31,6 @@ Plugin 'easymotion/vim-easymotion'
 " Highlights trailing whitespace in red
 Plugin 'bronson/vim-trailing-whitespace'
 
-" Change/add/edit surroundings (parenthesis, brackets, quotes, tags, ...)
-Plugin 'tpope/vim-surround'
-
 " Call RuboCop inside vim
 Plugin 'ngmy/vim-rubocop'
 
@@ -46,15 +43,6 @@ Plugin 'slim-template/vim-slim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'isRuslan/vim-es6'
-
-" Helpers for developing with Rails
-Plugin 'tpope/vim-rails'
-
-" Snippets
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

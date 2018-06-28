@@ -1,4 +1,0 @@
---tool=memcheck
---leak-check=full
---show-reachable=yes
---suppressions=/Users/wradion/.leak_supp/leak1.supp
