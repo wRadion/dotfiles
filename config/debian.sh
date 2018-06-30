@@ -1,11 +1,27 @@
-#! /bin/sh
+#! /bin/bash
 
-install "yaourt" "command -v yaourt"
-install "font" "pacman -Q ttf-dejavu-sans-mono-powerline-git"
+# Packages to install
+PACKAGES="
+sudo zip git curl build-essential module-assistant
+dirmngr gnupg2 fonts-powerline
+zsh xorg i3 alsa-utils
+xterm vim chromium htop tree
+"
+
+puts
+puts "${B_YELLOW}PACKAGES${RESET}"
+puts "${B_YELLOW}--------${RESET}"
+
+sudo apt-get install $PACKAGES
+
+puts
+puts "${B_YELLOW}PROGRAMS${RESET}"
+puts "${B_YELLOW}--------${RESET}"
+
 install "oh-my-zsh" "test -d $HOME/.oh-my-zsh"
 install "zsh-syntax-highlighting" "test -d $HOME/.zsh/zsh-syntax-highlighting"
 install "vundle" "test -d $HOME/.vim/bundle/Vundle.vim"
-install "fzf" "test -f /usr/local/opt/fzf/shell/key-bindings.zsh"
+install "fzf-git" "command -v fzf"
 install "rvm" "command -v rvm"
 
 SYMBOLIC_LINKS="

@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 # Check if the script is running as root (sudo)
 if [ "$EUID" -eq 0 ]; then
@@ -13,7 +13,7 @@ DOTFILES=`pwd`
 
 # Check if the first arg is present and supported
 if [ "$1" == "" ]; then
-  puts "${B_RED}Usage: $0 [archlinux]${RESET}"
+  puts "${B_RED}Usage: $0 [archlinux|debian]${RESET}"
   exit 1
 fi
 

@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 # Printf with newline
 puts () {
