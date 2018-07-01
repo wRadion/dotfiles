@@ -3,7 +3,7 @@
 # Packages to install
 PACKAGES="
 sudo zip git curl build-essential module-assistant
-dirmngr gnupg2 fonts-powerline
+dirmngr gnupg2 fonts-powerline fonts-noto
 zsh xorg i3 alsa-utils
 xterm vim chromium htop tree
 "
