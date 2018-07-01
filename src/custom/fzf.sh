@@ -1,4 +1,5 @@
-#! /bin/sh
+#! /bin/bash
 
-sudo mkdir -p /usr/local/opt/fzf/shell
-sudo ln -s $DOTFILES/.key-bindings.zsh /usr/local/opt/fzf/shell/key-bindings.zsh
+git clone --depth 1 https://github.com/junegunn/fzf ~/.fzf
+cd ~/.fzf
+./install

@@ -2,10 +2,10 @@
 
 # Packages to install
 PACKAGES="
-sudo zip git curl build-essential module-assistant
+zip curl build-essential module-assistant
 dirmngr gnupg2 fonts-powerline fonts-noto
-zsh xorg i3 alsa-utils
-xterm vim chromium htop tree
+zsh xorg i3 alsa-utils policykit-1
+xterm vim chromium htop tree silversearcher-ag
 "
 
 puts
@@ -21,7 +21,7 @@ puts "${B_YELLOW}--------${RESET}"
 install "oh-my-zsh" "test -d $HOME/.oh-my-zsh"
 install "zsh-syntax-highlighting" "test -d $HOME/.zsh/zsh-syntax-highlighting"
 install "vundle" "test -d $HOME/.vim/bundle/Vundle.vim"
-install "fzf-git" "command -v fzf"
+install "fzf" "command -v fzf"
 install "rvm" "command -v rvm"
 
 SYMBOLIC_LINKS="
@@ -32,6 +32,7 @@ SYMBOLIC_LINKS="
   .config/htop/htoprc
   .config/i3/config
   .config/i3status/config
+  .fzf/shell/key-bindings.zsh
   .zshrc
   .fzf.zsh
   .vimrc
