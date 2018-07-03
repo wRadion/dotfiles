@@ -17,7 +17,9 @@ source "./src/init.sh"
 # OS Configuration #
 #------------------#
 
-source "$OS_CONFIG"
+if [ "$2" != 'link-only' ]; then
+  source "$OS_CONFIG"
+fi
 
 #----------------#
 # Symbolic Links #
