@@ -41,6 +41,9 @@ bindsym $mod+Shift+a exec chromium
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# start i3lock
+bindsym $mod+Shift+Return exec lock -p -f "DejaVu Sans Mono" -t "LOCKED"
+
 # start dmenu (a program launcher)
 #bindsym $mod+d exec "dmenu_run -nf '#CCCCCC' -nb '#000000' -sf '#FFFFFF' -sb '#006600' -fn 'terminus-10'"
 # There also is the (new) i3-dmenu-desktop which only displays applications
