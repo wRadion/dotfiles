@@ -23,4 +23,3 @@ install "zsh-syntax-highlighting" "test -d $HOME/.zsh/zsh-syntax-highlighting"
 install "vundle" "test -d $HOME/.vim/bundle/Vundle.vim"
 install "fzf" "command -v fzf"
 install "rvm" "command -v rvm"
-

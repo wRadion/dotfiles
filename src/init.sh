@@ -13,10 +13,11 @@ DOTFILES=`pwd`
 
 # Check if the first arg is present and supported
 if [ "$1" == "" ]; then
-  puts "${B_RED}Usage: $0 [archlinux|debian]${RESET}"
+  puts "${B_RED}Usage: $0 [archlinux|debian|macos|windows]${RESET}"
   exit 1
 fi
 
+OS="$1"
 OS_CONFIG="$DOTFILES/config/$1.sh"
 if [ -f "$OS_CONFIG" ]; then
   puts "${B_CYAN}Installation for $1${RESET}"
@@ -26,4 +27,6 @@ else
 fi
 
 # Because the script is run as root, we need to get the real user HOME
-HOME=`eval echo ~$SUDO_USER`
+if [ "$OS" != "windows" ]; then
+  HOME=`eval echo ~$SUDO_USER`
+fi

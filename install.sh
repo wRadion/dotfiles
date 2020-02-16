@@ -25,19 +25,22 @@ fi
 # Symbolic Links #
 #----------------#
 
-SYMBOLIC_LINKS="
+SYMBOLIC_LINKS_COMMON="
+  .vim/colors/wradion.vim
+  .vimrc
+  .gitconfig
+"
+
+SYMBOLIC_LINKS_UNIX="
   .oh-my-zsh/themes/wradion.zsh-theme
   .oh-my-zsh/custom/aliases.zsh
   .oh-my-zsh/custom/exports.zsh
-  .vim/colors/wradion.vim
+  .zshrc
   .config/htop/htoprc
   .config/i3/config
   .config/i3status/config
-  .fzf/shell/key-bindings.zsh
-  .zshrc
   .fzf.zsh
-  .vimrc
-  .gitconfig
+  .fzf/shell/key-bindings.zsh
   .xinitrc
   .Xresources
   .zprofile
@@ -48,7 +51,16 @@ puts
 puts "${B_YELLOW}SYMBOLIC LINKS${RESET}"
 puts "${B_YELLOW}--------------${RESET}"
 
-for F in $SYMBOLIC_LINKS; do
+for F in $SYMBOLIC_LINKS_COMMON; do
+  create_link $F
+done
+
+if [ "$OS" == "windows" ]; then
+  echo "Done for Windows."
+  exit 0
+fi
+
+for F in $SYMBOLIC_LINKS_UNIX; do
   create_link $F
 done
 
