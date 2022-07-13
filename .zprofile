@@ -1,3 +1,5 @@
 if [ -e $DISPLAY ]; then
-  startx
+  if [ -x "$(command -v startx)" ]; then
+    startx
+  fi
 fi

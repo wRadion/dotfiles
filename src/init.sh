@@ -13,7 +13,7 @@ DOTFILES=`pwd`
 
 # Check if the first arg is present and supported
 if [ "$1" == "" ]; then
-  puts "${B_RED}Usage: $0 [archlinux|debian|macos|windows]${RESET}"
+  puts "${B_RED}Usage: $0 [archlinux|debian|macos|wsl-debian]${RESET}"
   exit 1
 fi
 
